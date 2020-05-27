@@ -1,0 +1,38 @@
+Soap Questions
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+
+Rest questions
+
+1. In terms of a REST API methods, what does being a "safe operation" mean
+	-the operation is free of any type of virus
+	-(Correct)the operation may be invoked any number of times in any order and return the same results
+	-the operation may be invoked any number of times in any order but will return different results each time
+	-the operation may be invoked only when accompanied by proper authorization
+
+2. Which of the following URIs follows good naming practice
+	-https://adventure-works.com/create-order
+	-https://adventure-works.com/get-customer/1
+	-https://adventure-works.com/customer-orders/3
+	-(Correct)https://adventure-works.com/customers/3/orders
+
+3. To mitigate latency while performing time consuming operations, it is best to 
+	-(Correct)Use asynchronous operations and return an HTTP status code 202 with the URI of the status endpoint
+	- return an HTTP status code 200 OK
+	- Use synchronous operations and return an HTTP status code of 206 Partial Content
+	- return an HTTP status code 205 Reset Content
+
+4.
+
+5.
+
+
