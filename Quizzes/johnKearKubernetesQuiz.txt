@@ -1,0 +1,51 @@
+Kubernetes quiz
+
+1. Which command scales the Deployment 'kubernetes-bootcamp 'to 3 replicas
+	- kubectl get deployments 3
+	- kubectle scale kubernetes-bootcamp 3
+	- kubectle scale deployments/kubernetes-bootcamp --replicas=10
+	- (Correct)kubectle scale deployments/kubernetes-bootcamp --replicas=3
+	link: https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-interactive/
+
+2. Redis is configured using a file usually named what?
+	- kustomization.yaml
+	- redis-pod.yaml
+	- redis-cli
+	- (Correct)redis.conf
+	link: https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/
+	
+3. Beats from Elastic do what?
+	- create code coverage reports
+	- collect user informaiton
+	- collect music to be shared via p2p
+	- (Correct) collect, parse and index operational information data into Elasticsearch
+	link: https://kubernetes.io/docs/tutorials/stateless-application/guestbook-logs-metrics-with-elk/#deploy-the-beats
+	
+4. Which of the following is NOT a deployment and scaling guarantee of a StatefulSet Pod
+	- For a StatefulSet with N replicas, when Pods are being deployed, they are created sequentially, in order from {0..N-1}.
+	- When Pods are being deleted, they are terminated in reverse order, from {N-1..0}.
+	- Before a Pod is terminated, all of its successors must be completely shutdown.
+	- (Correct)Before a scaling operation is applied to a Pod, none of its predecessors must be Running and Ready.
+	link: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+
+5. Which of the following versions of Kubernetes supports AppArmor
+	- v1.1
+	- v1.2
+	- v1.3
+	- (Correct)v1.4
+	link: https://kubernetes.io/docs/tutorials/clusters/apparmor/
+	
+6. Why are packets sent to Services with Type=LoadBalance source NAT'd by default?
+	- All schedulable Kubernetes in the Ready state must manually be configured for load-balanced traffic.
+	- All schedulable Kubernetes in the Ready state are not eligible for load-balanced traffic.
+	- All schedulable Kubernetes in any state are eligible for load-balanced traffic.
+	- (Correct)All schedulable Kubernetes nodes in the Ready state are eligible for load-balanced traffic.
+	link: https://kubernetes.io/docs/tutorials/services/source-ip/
+
+7. In the context of kubernetes, what controls traffic routing
+	- Routing Annotation
+	- The Internet
+	- Rules defined in Replica Sets
+	- (Correct)Rules defined in the Ingress resource
+	slide: 18
+
