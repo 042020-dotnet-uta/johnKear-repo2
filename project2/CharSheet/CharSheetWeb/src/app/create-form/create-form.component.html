@@ -1,0 +1,105 @@
+<div class="controls">
+  <div>
+    <label class="col-5" style="text-align: right; font-size: 14px; color: white;">Default Height:</label>
+    <input [(ngModel)]="height" class="col-6 offset-1 rounded-lg" />
+  </div>
+  <div>
+    <label class="col-5" style="text-align: right; font-size: 14px; color: white;">Default Width:</label>
+    <input [(ngModel)]="width" class="col-6 offset-1 rounded-lg" />
+  </div>
+  <div *ngIf="type==='inputs-form'">
+    <label class="col-5" style="text-align: right; font-size: 14px; color: white">Input Fields Count:</label>
+    <input *ngIf="type==='inputs-form'" [(ngModel)]="count" class="col-6 offset-1 rounded-lg"
+      placeholder="Number of Inputs" />
+  </div>
+  <div>
+    <select class="col-5 rounded-lg" [(ngModel)]="type" id="type-selection">
+      <option disabled selected>Select Form Type</option>
+      <option *ngFor="let type of formTypes" [value]="type.value">{{type.name}}</option>
+    </select>
+    <button class="btn-secondary col-6 offset-1" (click)="createItem()">Create New Item</button>
+  </div>
+  <div>
+    <input class="col-5 rounded-lg" [(ngModel)]="nameInput" placeholder="Enter Template Name">
+    <button class="btn-secondary col-6 offset-1" (click)="saveTemplate()">Save Template</button>
+  </div>
+  <div *ngIf="!nameInput">
+    <span class="text-warning col-3 offset-1 text-center">
+      Enter a Name!
+    </span>
+  </div>
+  <div>
+    <span class="text-warning col-3 offset-1" style="text-align: center;">
+      {{state}}
+    </span>
+  </div>
+</div>
+<div id='form-boundary' #formBoundary>
+
+  <div class="drag-box inputs-form form-template" *ngFor="let form of inputsElements" cdkDragBoundary="#form-boundary"
+    cdkDrag [style.width.px]="form.width" [style.height.px]="form.height">
+    <div class="form-area">
+      <input class="form-title" placeholder="Form Title" />
+      <div class="input-area">
+        <ul class="input-container">
+          <li *ngFor="let input of form.inputs" class="input-row">
+            <div class="form-label"><input placeholder="Input Label"></div>
+            <div class="form-input"><span class="temp-form">This is placeholder text
+                content.</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="box-handle" cdkDragHandle>
+        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+          </path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="drag-box title-text-form form-template" *ngFor="let form of titleTextElements"
+    cdkDragBoundary="#form-boundary" cdkDrag [style.width.px]="form.width" [style.height.px]="form.height">
+    <div class="form-area">
+      <input class="form-title" placeholder="Form Title" />
+      <textarea class="textarea" disabled>This is placeholder text content.</textarea>
+    </div>
+    <div class="box-handle" cdkDragHandle>
+      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+        </path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="drag-box text-form form-template" *ngFor="let form of textElements" cdkDragBoundary="#form-boundary"
+    cdkDrag [style.width.px]="form.width" [style.height.px]="form.height">
+    <textarea class="textarea" disabled>This is placeholder text content.</textarea>
+    <div class="box-handle" cdkDragHandle>
+      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+        </path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="drag-box title-form form-template" *ngFor="let form of titleElements" cdkDragBoundary="#form-boundary"
+    cdkDrag [style.width.px]="form.width" [style.height.px]="form.height">
+    <input type="text" class="form-title" placeholder="Form Title" />
+    <div class="box-handle" cdkDragHandle>
+      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+        </path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+   <div class="row">
+      <div class="col-6 ">
+         <h1>Templates</h1>
+         <ul class="genBackground">
+           <li *ngFor="let template of templatesData" (click)="getSelectedTemplate(template)">
+             <a routerLink="/template/{{template.templateId}}" style="color:darkred">{{template.name}}</a>
+           </li>
+         </ul>
+      </div>
+      <div class="col-6">
+         <h1>Sheets</h1>
+         <ul class="genBackground">
+           <li *ngFor="let sheet of sheetsData" (click)="getSelectedSheet(sheet)">
+             <a routerLink="/sheet/{{sheet.sheetId}}" style="color:darkred">{{sheet.name}}</a>
+           </li>
+         </ul>
+      </div>
+   </div>
+</div>

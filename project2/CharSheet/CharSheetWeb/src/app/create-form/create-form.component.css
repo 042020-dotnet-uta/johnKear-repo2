@@ -1,0 +1,5 @@
+.form-template {
+    resize: both;
+    overflow: auto;
+    box-sizing: border-box;
+}

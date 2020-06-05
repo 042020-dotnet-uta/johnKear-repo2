@@ -1,0 +1,39 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 nav nav-tabs">
+    <div class="container" style="overflow: hidden;">
+      <a class="navbar-brand" >
+        <a href="#" class="logo-image"><img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.15752-9/102411502_256334972137427_2935033461557166080_n.png?_nc_cat=106&_nc_sid=b96e70&_nc_ohc=Dt_QBVLiA28AX9trqfN&_nc_ht=scontent-atl3-1.xx&oh=286ba55bde43216486655001f749b9c6&oe=5F013256"></a>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav flex-grow-1 justify-content-start">
+        <li class="nav-item">
+          <a routerLink="createForm" class="nav-link text-white-50"> Create Form</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="accessForm" class="nav-link text-white-50">Access Form</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav flex-grow-1 justify-content-end">
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link text-white-50 btn btn-link" *ngIf="!isLoggedIn" button (click)="singIn('Google');">Sign
+            in with Google </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <span class="nav-link text-white-50" *ngIf="isLoggedIn">{{user.name}}</span>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <img src="{{ user.photoUrl }} " alt="yourImage" style="border-radius: 50%; max-width: 30px; max-height: 30px">
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link text-white-50 btn btn-link" (click)="signOut();">Sign out </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>

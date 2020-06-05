@@ -1,0 +1,17 @@
+#form-boundary {
+    position: relative;
+}
+
+.form-template {
+    position: absolute;
+}
+
+.textarea {
+    resize: none;
+}
+
+.text-form> :first-child, .title-form> :first-child {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}

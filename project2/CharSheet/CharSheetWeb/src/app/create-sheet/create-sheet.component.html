@@ -1,0 +1,64 @@
+<div class="controls">
+    <div *ngIf="templateId">
+        <input [(ngModel)]="templateId" placeholder="Enter Template Id" class="col-7 rounded-lg" />
+        <button class="col-md-4 offset-1 btn-secondary" (click)="fetchTemplate()">Fetch Template</button>
+    </div>
+    <div *ngIf="sheetId">
+        <input [(ngModel)]="sheetId" placeholder="Enter Sheet Id" class="col-7 rounded-lg" />
+        <button class="col-md-4 offset-1 btn-secondary" (click)="fetchSheet()">Fetch Sheet</button>
+    </div>
+    <div>
+        <input [(ngModel)]="nameInput" placeholder="Enter Sheet Name" class="col-7">
+        <button (click)="saveSheet()" class="col-md-4 offset-1 btn-secondary">Save Sheet</button>
+    </div>
+    <div *ngIf="!nameInput">
+        <span class="text-warning offset-2 text-center">
+            Enter a Name!
+        </span>
+    </div>
+    <div>
+        <span class="text-warning offset-2">
+            {{state}}
+        </span>
+    </div>
+</div>
+<div id='form-boundary' #formBoundary>
+
+    <div class="form-box inputs-form form-template" *ngFor="let form of inputsElements" [style.width.px]="form.width"
+        [style.height.px]="form.height" [style.top.px]="form.y" [style.left.px]="form.x" [id]="form.formTemplateId">
+        <div class="form-area">
+            <label class="form-title">{{form.title}}</label>
+            <div class="input-area">
+                <ul class="input-container">
+                    <li *ngFor="let input of form.inputs" class="input-row">
+                        <div class="form-label"><label class="temp-form">{{input.label}}</label></div>
+                        <div class="form-input"><input [value]="input.input"
+                                placeholder="This is placeholder text content." /></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-box title-text-form form-template" *ngFor="let form of titleTextElements"
+        [style.width.px]="form.width" [style.height.px]="form.height" [style.top.px]="form.y" [style.left.px]="form.x"
+        [id]="form.formTemplateId">
+        <div class="form-area">
+            <label class="form-title">{{form.title}}</label>
+            <textarea
+                class="textarea rounded-lg">{{(form.formInputs) ? form.formInputs[0] : "Enter Text Here"}}</textarea>
+        </div>
+    </div>
+
+    <div class="form-box text-form form-template" *ngFor="let form of textElements" [style.width.px]="form.width"
+        [style.height.px]="form.height" [style.top.px]="form.y" [style.left.px]="form.x" [id]="form.formTemplateId">
+        <textarea class="textarea rounded-lg">{{(form.formInputs) ? form.formInputs[0] : "Enter Text Here"}}</textarea>
+    </div>
+
+    <div class="form-box title-form form-template" *ngFor="let form of titleElements" [style.width.px]="form.width"
+        [style.height.px]="form.height" [style.top.px]="form.y" [style.left.px]="form.x" [id]="form.formTemplateId">
+        <label class="form-title">{{form.title}}</label>
+    </div>
+
+</div>
+<button (click)="toPdf()">Save as PDF</button>
